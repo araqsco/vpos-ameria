@@ -19,6 +19,7 @@ export const Vpos = new Proxy<VposTypes.Client>({} as VposTypes.Client, {
 			);
 
 			const response = await fetch(`${config.baseUrl}/api/VPOS/${path}`, {
+				method: "POST",
 				body,
 				headers: {
 					"Content-Type": "application/json",

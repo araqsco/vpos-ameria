@@ -51,11 +51,7 @@ export namespace VposHelpers {
 		options?: VposTypes.Options,
 	) {
 		const config = getConfig(options);
-		const params = new URLSearchParams();
-		params.set("id", paymentID);
-		params.set("lang", language);
-
-		return `${config.baseUrl}/Payments/Pay?${params}`;
+		return `${config.baseUrl}/Payments/Pay?id=${encodeURIComponent(paymentID)}&lang=${language}`;
 	}
 
 	export function getConfig(
