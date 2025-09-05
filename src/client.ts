@@ -7,7 +7,7 @@ export const Vpos = new Proxy<VposTypes.Client>({} as VposTypes.Client, {
 			throw new Error("Cannot get a symbol key");
 		}
 		return async (request: object, options?: VposTypes.Options) => {
-			const config = getConfig(options);
+			const config = VposHelpers.getConfig(options);
 			const path = VposHelpers.capitalize(key);
 			const body = JSON.stringify(
 				VposHelpers.capitalizeObject({
@@ -18,7 +18,7 @@ export const Vpos = new Proxy<VposTypes.Client>({} as VposTypes.Client, {
 				}),
 			);
 
-			const response = await fetch(`${config.baseUrl}/${path}`, {
+			const response = await fetch(`${config.baseUrl}/api/VPOS/${path}`, {
 				body,
 				headers: {
 					"Content-Type": "application/json",
@@ -30,22 +30,3 @@ export const Vpos = new Proxy<VposTypes.Client>({} as VposTypes.Client, {
 	},
 });
 
-function getConfig(options?: VposTypes.Options): Required<VposTypes.Options> {
-	if (!options) {
-		return {
-			username: process.env.VPOS_AMERIA_USERNAME,
-			password: process.env.VPOS_AMERIA_PASSWORD,
-			clientID: process.env.VPOS_AMERIA_CLIENT_ID,
-			baseUrl:
-				process.env.VPOS_AMERIA_BASE_URL ||
-				"https://servicestest.ameriabank.am/VPOS/api/VPOS",
-		};
-	}
-	return {
-		baseUrl:
-			options.baseUrl ??
-			(process.env.VPOS_AMERIA_BASE_URL ||
-				"https://servicestest.ameriabank.am/VPOS/api/VPOS"),
-		...options,
-	};
-}

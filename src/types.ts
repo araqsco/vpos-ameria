@@ -10,7 +10,7 @@ export namespace VposTypes {
 		/**
 		 * ISO three digit code, look in VposHelpers
 		 */
-		currency: number;
+		currency: string;
 		description: string;
 		/**
 		 * Unique ID of the transaction
@@ -71,7 +71,7 @@ export namespace VposTypes {
 		 */
 		password: string;
 		/**
-		 * defaults to AMERIA_VPOS_BASE_URL or "https://servicestest.ameriabank.am/VPOS/api/VPOS"
+		 * defaults to AMERIA_VPOS_BASE_URL or "https://servicestest.ameriabank.am/VPOS"
 		 */
 		baseUrl?: string;
 	};
