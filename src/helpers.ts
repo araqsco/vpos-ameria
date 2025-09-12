@@ -1,6 +1,25 @@
 import { VposTypes } from "./types";
 
 export namespace VposHelpers {
+	export type QueryParamsForBackUrl = {
+		/**
+		 * Unique ID of the transaction
+		 */
+		orderID: string;
+		/**
+		 * Operation response code (successful=00)
+		 */
+		responseCode: string;
+		/**
+		 * Unique payment ID
+		 */
+		paymentID: string;
+		/**
+		 * Additional data
+		 */
+		opaque: string;
+	};
+
 	export type Currency = "amd" | "eur" | "usd" | "rub";
 	export function currencyIsoFromName(currency: Currency): string {
 		return isoCurrency[currency];
