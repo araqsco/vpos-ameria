@@ -5,21 +5,37 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
-		"/dist"
+		"dist"
 	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/araqsco/vpos-ameria.git"
+	},
+	"bugs": {
+		"url": "https://github.com/araqsco/vpos-ameria/issues"
+	},
+	"homepage": "https://github.com/araqsco/vpos-ameria#readme",
 	"scripts": {
 		"build": "tsc",
-		"watch": "tsc -w"
+		"watch": "tsc -w",
+		"prepare": "npm run build",
+		"prepublishOnly": "npm run build"
 	},
 	"keywords": [
 		"ameria",
 		"arca",
-		"vpos"
+		"vpos",
+		"payment",
+		"sdk",
+		"typescript"
 	],
-	"author": "Vahagn",
+	"author": "Araqs, Co. <araqsco@gmail.com>",
 	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "^24.3.1",
 		"typescript": "^5.9.2"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
