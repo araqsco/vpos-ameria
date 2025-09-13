@@ -81,6 +81,16 @@ export namespace VposHelpers {
 		return mapping[code];
 	}
 
+	export type PaymentType = "arca" | "paypal" | "binding";
+	const paymentTypeOfCode: Partial<Record<number, PaymentType>> = {
+		[5]: "arca",
+		[6]: "paypal",
+		[7]: "binding",
+	};
+	export function paymentTypeFromCode(code: number): PaymentType | undefined {
+		return paymentTypeOfCode[code];
+	}
+
 	export type Language = "en" | "ru" | "am";
 
 	export function decapitalize(key: string) {
