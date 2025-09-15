@@ -146,7 +146,7 @@ export namespace VposTypes {
 		/**
 		 * Unique ID of the transaction integer
 		 */
-		orderID?: number;
+		orderID?: string;
 		/**
 		 * Payment state string
 		 */
@@ -257,7 +257,7 @@ export namespace VposTypes {
 		/**
 		 * Unique code of the transaction: integer
 		 */
-		orderID: number;
+		orderID: string;
 		/**
 		 * Payment amount: decimal
 		 */
@@ -338,7 +338,7 @@ export namespace VposTypes {
 		/**
 		 * Unique ID of the transaction: integer
 		 */
-		orderID?: number;
+		orderID?: string;
 		/**
 		 * Payment state
 		 */
