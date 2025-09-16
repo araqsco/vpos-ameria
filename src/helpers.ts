@@ -32,55 +32,6 @@ export namespace VposHelpers {
 		rub: "643",
 	};
 
-	export type PaymentState =
-		| "payment_started"
-		| "payment_approved"
-		| "payment_declined"
-		| "payment_deposited"
-		| "payment_refunded"
-		| "payment_autoauthorized"
-		| "payment_void";
-	export type PaymentStateInfo = {
-		code: PaymentState;
-		message: string;
-	};
-	export function paymentStateFromCode(
-		code: number,
-	): PaymentStateInfo | undefined {
-		const mapping: Partial<Record<number, PaymentStateInfo>> = {
-			[0]: {
-				code: "payment_started",
-				message: "Order is registered but not paid",
-			},
-			[1]: {
-				code: "payment_approved",
-				message: "Amount of the order was preauthorized",
-			},
-			[6]: {
-				code: "payment_declined",
-				message: "Authorization declined",
-			},
-			[2]: {
-				code: "payment_deposited",
-				message: "Amount successfully authorized",
-			},
-			[4]: {
-				code: "payment_refunded",
-				message: "Amount of the transaction was refunded",
-			},
-			[5]: {
-				code: "payment_autoauthorized",
-				message: "Authorization via ACS of the issuer bank",
-			},
-			[3]: {
-				code: "payment_void",
-				message: "Authorization cancelled",
-			},
-		};
-
-		return mapping[code];
-	}
-
 	export type PaymentType = "arca" | "paypal" | "binding";
 	const paymentTypeOfCode: Partial<Record<number, PaymentType>> = {
 		[5]: "arca",

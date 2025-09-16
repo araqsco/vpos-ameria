@@ -1,3 +1,5 @@
+import { VposHelpers } from "./helpers";
+
 export namespace VposTypes {
 	export interface Client {
 		initPayment(
@@ -150,7 +152,7 @@ export namespace VposTypes {
 		/**
 		 * Payment state string
 		 */
-		paymentState?: string;
+		paymentState?: PaymentState;
 		/**
 		 * 5- MainRest (arca)
 		 * 7- PayPal
@@ -342,7 +344,7 @@ export namespace VposTypes {
 		/**
 		 * Payment state
 		 */
-		paymentState?: string;
+		paymentState?: PaymentState;
 		/**
 		 * 5- MainRest (arca)
 		 * 7- PayPal
@@ -452,6 +454,15 @@ export namespace VposTypes {
 		 */
 		cardHolderID?: string;
 	};
+
+	export type PaymentState =
+		| "payment_started"
+		| "payment_approved"
+		| "payment_declined"
+		| "payment_deposited"
+		| "payment_refunded"
+		| "payment_autoauthorized"
+		| "payment_void";
 
 	export type GenericResponse = {
 		/**
